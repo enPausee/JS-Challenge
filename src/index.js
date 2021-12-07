@@ -21,31 +21,38 @@ const animalsToAdopt = [
     picture: "https://placekitten.com/200/179",
   },
 ];
+
+function createDivWithClass(className) {
+  const div = document.createElement("div");
+  div.classList.add(className);
+  return div;
+}
+
+function createElementWithClass(element, className) {
+  const el = document.createElement(element);
+  el.classList.add(className);
+  return el;
+}
+
 function createCard(title, imageUrl) {
-  const card = document.createElement("div");
-  card.classList.add("card");
+  const card = createDivWithClass("card");
   cards.appendChild(card);
 
-  const cardHeader = document.createElement("div");
-  cardHeader.classList.add("card-header");
+  const cardHeader = createDivWithClass("card-header");
   card.appendChild(cardHeader);
 
-  const cardImg = document.createElement("div");
+  const cardImg = createDivWithClass("card-img");
   cardImg.style.backgroundImage = `url(${imageUrl})`;
-  cardImg.classList.add("card-img");
   cardHeader.appendChild(cardImg);
 
-  const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body");
+  const cardBody = createDivWithClass("card-body");
   card.appendChild(cardBody);
 
-  const cardTitle = document.createElement("h2");
-  cardTitle.classList.add("card-title");
+  const cardTitle = createElementWithClass("h2", "card-title");
   cardTitle.innerHTML = title;
   cardBody.appendChild(cardTitle);
 
-  const cardButton = document.createElement("button");
-  cardButton.classList.add("card-button");
+  const cardButton = createElementWithClass("button", "card-button");
   cardButton.innerHTML = "Adopt Now";
   cardBody.appendChild(cardButton);
 }
